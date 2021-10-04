@@ -128,7 +128,7 @@ let footer = $(`
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
-                <a class="socialicon github" href="https://github.com/Advaithsrao" target="_blank" rel="author">
+                <a class="socialicon github" href="https://github.com/advaithsrao" target="_blank" rel="author">
                     <!-- SVG code for Github icon -->
                     <svg class="github-icon" width="60px" height="60px" viewBox="0 0 300 300">
                         <!-- body -->
