@@ -12,7 +12,7 @@ const projects = [
     Githublink: "https://github.com/advaithsrao/Instrument_recognition_in_polyphonic_recordings",
   },
   {
-    title: "(Merck Challenge) Sequential Model-Based Bayesian Optimization",
+    title: "(Merck Challenge) Sequential Bayesian Optimization",
     cardImage: "assets/images/project-page/optimization.jpeg",
     description: "In this project with Merck Re-Insurance firm, me and my team worked on optimizing on an input space towards maximizing/minimizing our desired target variable from an experiment.",
     Githublink: "https://github.com/advaithsrao/Sequential-Bayesian-Optimization",
@@ -30,7 +30,7 @@ const projects = [
     Githublink: "https://github.com/advaithsrao/Instrument_recognition_in_polyphonic_recordings",
   },
   {
-    title: "Twitter Sentiment Analysis using Universal Sentence Encoder",
+    title: "Twitter Sentiment Analysis",
     cardImage: "assets/images/project-page/sentiment.png",
     description: "Analyze and classify sentiment on tweets using Universal Sentence Encoder to embed tweets and SVM to classify them.",
     Githublink: "https://github.com/advaithsrao/TwitterSentimentAnalysis_using_UniversalSentenceEncoder",
