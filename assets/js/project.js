@@ -9,7 +9,7 @@ const projects = [
     title: "Statistical & Predictive Analysis of Song Popularity",
     cardImage: "assets/images/project-page/spotify_top_50.jpeg",
     description: "Used regression to predict track popularity based on audio features such as valence, acousticness and tempo. We also ranked 1st place out of 16 participating teams in Regression and Time Series Analysis for this project",
-    Githublink: "https://github.com/advaithsrao/Instrument_recognition_in_polyphonic_recordings",
+    Githublink: "https://github.com/FalgunMalhotra/StatisticalAndPredictiveAnalysisOfSongPopularity",
   },
   {
     title: "(Merck Challenge) Sequential Bayesian Optimization",
