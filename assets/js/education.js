@@ -5,6 +5,11 @@ AOS.init();
 const moocs = document.querySelector(".moocs");
 const moocscards = [
   {
+    title: "Associate Data Scientist - Certification",
+    cardImage: "assets/images/education-page/data_scientist_associate_banner.png",
+    moocLink: "https://drive.google.com/file/d/1bTC6X2gEVRvzSFEHLjConBygazrUJcg0/view?usp=share_link",
+  },
+  {
     title: "Advanced NLP with Python for Machine Learning",
     cardImage: "assets/images/education-page/linkedin.png",
     moocLink: "https://drive.google.com/file/d/1-d0czEh9w-aa5C24VZdwU0jgzZtvrVAL/view?usp=sharing",

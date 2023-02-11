@@ -13,7 +13,7 @@ const exp = [
     desp: "<span><li>Wore multiple hats, working equally on bulding model pipelines and on developing features to protect customer mailboxes from threat attacks.</li><li>Created an end-to-end model retraining pipeline based on Luigi (by Spotify) to run complex model retraining on an automatic cadence. Added support for MLFlow (model tracking), Google Cloud Bucket (artifact storage), and PostgreSQL (data store).</li><li>Detected several types of Socially Engineered threat attacks by implementing a Multiclass SVM model.</li><li>Worked as a part of the Threat Research team, analyzing Zero-Day Credential Phishing and Business Email Compromise (BEC) attacks.</li><li>Experimented with a Coreference-Resolution-based architecture to support Data Loss Prevention (DLP).</li><li>Performed ablation studies to understand the relevance of certain input textual features. Experimented with perturbation techniques like N-gram noising, content word removal, and synonym replacement.</li><li>Researched on BERT model learning through unintended heuristics, leading to the model performing well, without understanding the task-at-hand (Clever Hans Effect).</li><li>Acquired hands-on experience in Redash, Cloud DataFlow, Google Kubernetes Engine, Metabase, Comet,and Cloud Functions.</li></span>",
   },
   {
-    title: "Software Engineer (Data Scientist)",
+    title: "Data Scientist",
     cardImage: "assets/images/experience-page/gsoc.png",
     place: "StatValu Private Limited",
     time: "Bangalore, India | (Nov 2019 - Mar 2020)",
@@ -27,7 +27,7 @@ const exp = [
     desp:"<li>Worked on a proof of concept implementation in Level 4 automated driving systems (ADS) by implementing an ensemble deep learning architecture, involving a Convolutional Neural Network (CNN), Faster Region-Based Convolutional Neural Networks (FRCNN), and Long Short-Term Memory (LSTM) using Stereo Multi-Purpose Camera (SMPC) images.</li><li>Implemented a CNN, to identify construction zones with a test accuracy of 98%.</li><li>Implemented an FRCNN, to detect and classify road signs with an Intersection Over Union (IOU) of 0.92.</li><li>Implemented an LSTM, input with CNN and FRCNN targets to predict the proximity of construction zones.</li><li>Researched autonomous driverless systems concepts such as Localization, Sensor Fusion, and Path Planning.</li>",
   },
   {
-    title: "Deep Learning Intern",
+    title: "Machine Learning Intern",
     cardImage: "assets/images/experience-page/IIT_Bombay.jpg",
     place: "LCode Technologies Private Limited",
     time: "Mangalore, India | (May 2018 - Jun 2018)",
@@ -136,17 +136,29 @@ document.addEventListener("DOMContentLoaded", showCards2);
 const hackathonsection = document.querySelector(".hackathon-section");
 const mentor = [
   {
-    title: "Code.Fun.Do",
-    subtitle: "Microsoft | (Feb 2018)",
-    image: "assets/images/experience-page/uplift.png",
-    desp: "<li>Developed an Optical Character Recognition (OCR) based smart notes-taking device aimed at capturing periodic images of a blackboard in a classroom, processing these images on a Microsoft Azure Cloud, and collating these images into a notebook.</li><li>Implemented computer vision techniques to help process/format the captured information presented by these images in an organized way.</li>",
+    title: "Statistical Analysis of Song Popularity",
+    subtitle: "Regression and TSA Challenge | 2022",
+    image: "assets/images/project-page/spotify_top_50.jpeg",
+    desp: "<li>Used Regression to predict track popularity based on audio features such as valence, acousticness, and tempo.</li><li>Ranked 1st Place out of 20 participating teams.</li>",
+  },
+  {
+    title: "Sequential Model Based Bayesian Optimization",
+    subtitle: "Merck Re Challenge | 2022",
+    image: "assets/images/project-page/optimization.jpeg",
+    desp: "<li>Optimized on an input space towards minimizing our desired target variable across different experiments.</li><li>Ranked 1st Place out of 9 participating teams.</li>",
   },
   {
     title: "Tea-Story Weekend Hackathon",
-    subtitle: "MachineHack | (Aug 2021)",
+    subtitle: "MachineHack | 2021",
     image: "assets/images/experience-page/ulhacks.png",
     desp: "<li>Analyzed and forecasted weekly average tea prices in major cities. Imputed null values using average prices over cities and explored seasonality, yearly trends across the distribution of average tea prices.</li><li>Techniques used: Prophet by Facebook, ARIMA for Time Series Analysis; Lasso Regression to predict prices for individual cities and the average tea price across cities over time.</li>",
   },
+  {
+    title: "Code.Fun.Do",
+    subtitle: "Microsoft | 2018",
+    image: "assets/images/experience-page/uplift.png",
+    desp: "<li>Developed an Optical Character Recognition (OCR) based smart notes-taking device aimed at capturing periodic images of a blackboard in a classroom, processing these images on a Microsoft Azure Cloud, and collating these images into a notebook.</li><li>Implemented computer vision techniques to help process/format the captured information presented by these images in an organized way.</li>",
+  }
 ];
 
 const showCards3 = () => {
