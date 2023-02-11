@@ -7,7 +7,7 @@ const moocscards = [
   {
     title: "Associate Data Scientist - Certification",
     cardImage: "assets/images/education-page/data_scientist_associate_banner.png",
-    moocLink: "https://drive.google.com/file/d/1bTC6X2gEVRvzSFEHLjConBygazrUJcg0/view?usp=share_link",
+    moocLink: "https://drive.google.com/file/d/1bTC6X2gEVRvzSFEHLjConBygazrUJcg0/view",
   },
   {
     title: "Advanced NLP with Python for Machine Learning",
