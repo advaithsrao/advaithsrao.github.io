@@ -136,13 +136,19 @@ document.addEventListener("DOMContentLoaded", showCards2);
 const hackathonsection = document.querySelector(".hackathon-section");
 const mentor = [
   {
-    title: "Statistical Analysis of Song Popularity",
+    title: "Data Inclusive Hackathon",
+    subtitle: "Capgemini | 2023",
+    image: "assets/images/education-page/capgemini.jpeg",
+    desp: "<li> Developed a Generative AI-powered report search engine that automatically searches and extracts relevant information from financial reports, research papers, market analysis, and other relevant documents. The search engine understands and interprets the context, identifies key concepts, and generates relevant search results based on user queries</li>",
+  },
+  {
+    title: "Statistical Analysis of Song Popularity(1st Place)",
     subtitle: "Regression and TSA Challenge | 2022",
     image: "assets/images/project-page/spotify_top_50.jpeg",
     desp: "<li>Used Regression to predict track popularity based on audio features such as valence, acousticness, and tempo.</li><li>Ranked 1st Place out of 20 participating teams.</li>",
   },
   {
-    title: "Sequential Model Based Bayesian Optimization",
+    title: "Sequential Model Based Bayesian Optimization (1st Place)",
     subtitle: "Merck Re Challenge | 2022",
     image: "assets/images/project-page/optimization.jpeg",
     desp: "<li>Optimized on an input space towards minimizing our desired target variable across different experiments.</li><li>Ranked 1st Place out of 9 participating teams.</li>",

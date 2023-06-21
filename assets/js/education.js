@@ -5,6 +5,11 @@ AOS.init();
 const moocs = document.querySelector(".moocs");
 const moocscards = [
   {
+    title: "Capgemini Inclusive Data Certification",
+    cardImage: "assets/images/education-page/capgemini.jpeg",
+    moocLink: "https://drive.google.com/file/d/1y-wFVKQTmXuAzSPCzbeV6AR9QwEWGY4-/view?usp=sharing",
+  },
+  {
     title: "Associate Data Scientist - Certification",
     cardImage: "assets/images/education-page/data_scientist_associate_banner.png",
     moocLink: "https://drive.google.com/file/d/1bTC6X2gEVRvzSFEHLjConBygazrUJcg0/view",

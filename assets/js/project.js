@@ -6,6 +6,12 @@ const projectcards = document.querySelector(".projectcards");
 // Array of object for projects
 const projects = [
   {
+    title: "Search Engine App",
+    cardImage: "assets/images/project-page/searchicon.png",
+    description: "Built Persistent Data Stores for Relational Data using PostgreSQL and Non-Relational Data using Elastic Search & Implemented LRU-based Caching with Time-To-Live to check, update, and remove stale entries in the cache frequently",
+    Githublink: "https://github.com/advaithsrao/694Team14Dbms2023",
+  },
+  {
     title: "Statistical & Predictive Analysis of Song Popularity",
     cardImage: "assets/images/project-page/spotify_top_50.jpeg",
     description: "Used regression to predict track popularity based on audio features such as valence, acousticness and tempo. We also ranked 1st place out of 16 participating teams in Regression and Time Series Analysis for this project",
