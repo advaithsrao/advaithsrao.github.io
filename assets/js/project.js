@@ -3,8 +3,20 @@ AOS.init();
 
 const projectcards = document.querySelector(".projectcards");
 
-// Array of object for projects
+// Array of object for projects - newest projects first
 const projects = [
+  {
+    title: "Ethical Fraud Detection (1st Place)",
+    cardImage: "assets/images/project-page/fraud-detection.svg",
+    description: "Performed Fraud Email Classification using a pre-trained DistilBERT model, integrating Ethical Statistics techniques such as Differential Privacy and Fully Homomorphic Encryption.",
+    Githublink: "https://github.com/advaithsrao/Fraud-Detector",
+  },
+  {
+    title: "#1 Friends Fan Chatbot",
+    cardImage: "assets/images/project-page/friends-chatbot.svg",
+    description: "Built an LLM Chatbot by LoRA fine-tuning a LLaMA 7B model using the Friends Show dialogue corpus.",
+    Githublink: "https://github.com/vanshigupta04/Persona-LLM-Chatbot-For-QA",
+  },
   {
     title: "Search Engine App",
     cardImage: "assets/images/project-page/searchicon.png",

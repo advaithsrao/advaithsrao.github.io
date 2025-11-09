@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="fraudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0070f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0052cc;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#fraudGrad)"/>
+  
+  <!-- Shield icon -->
+  <path d="M 400 120 L 320 160 L 320 280 Q 320 380 400 420 Q 480 380 480 280 L 480 160 Z" 
+        fill="white" opacity="0.9"/>
+  <path d="M 400 140 L 340 170 L 340 270 Q 340 350 400 385 Q 460 350 460 270 L 460 170 Z" 
+        fill="#0070f4"/>
+  
+  <!-- Lock -->
+  <rect x="375" y="230" width="50" height="40" rx="5" fill="white"/>
+  <circle cx="400" cy="215" r="15" fill="none" stroke="white" stroke-width="5"/>
+  
+  <!-- Checkmark -->
+  <polyline points="385,245 395,255 415,235" fill="none" stroke="#0070f4" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Text -->
+  <text x="400" y="480" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700" 
+        fill="white" text-anchor="middle">Fraud Detection</text>
+  <text x="400" y="530" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="500" 
+        fill="#FFD700" text-anchor="middle">DistilBERT + Ethical AI</text>
+</svg>

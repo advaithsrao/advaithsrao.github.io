@@ -1,6 +1,64 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
+/* Context-specific card colors with brand accuracy */
+.card1[data-company="Cisco"] {
+  --card-bg-light: linear-gradient(135deg, rgba(0, 112, 244, 0.15), rgba(0, 112, 244, 0.08));
+  --card-bg-dark: linear-gradient(135deg, rgba(0, 112, 244, 0.25), rgba(0, 112, 244, 0.12));
+  --card-accent: #0070f4;
+  border-left: 5px solid #0070f4;
+  background: var(--card-bg-light);
+}
+
+.card1[data-company="Armorblox"] {
+  --card-bg-light: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(155, 89, 182, 0.08));
+  --card-bg-dark: linear-gradient(135deg, rgba(155, 89, 182, 0.25), rgba(155, 89, 182, 0.12));
+  --card-accent: #9b59b6;
+  border-left: 5px solid #9b59b6;
+  background: var(--card-bg-light);
+}
+
+.card1[data-company="StatValu"] {
+  --card-bg-light: linear-gradient(135deg, rgba(46, 204, 113, 0.15), rgba(46, 204, 113, 0.08));
+  --card-bg-dark: linear-gradient(135deg, rgba(46, 204, 113, 0.25), rgba(46, 204, 113, 0.12));
+  --card-accent: #2ecc71;
+  border-left: 5px solid #2ecc71;
+  background: var(--card-bg-light);
+}
+
+.card1[data-company="Mercedes-Benz"] {
+  --card-bg-light: linear-gradient(135deg, rgba(64, 64, 64, 0.15), rgba(64, 64, 64, 0.08));
+  --card-bg-dark: linear-gradient(135deg, rgba(192, 192, 192, 0.25), rgba(192, 192, 192, 0.12));
+  --card-accent: #404040;
+  border-left: 5px solid #404040;
+  background: var(--card-bg-light);
+}
+
+.card1[data-company="LCode"] {
+  --card-bg-light: linear-gradient(135deg, rgba(255, 87, 51, 0.15), rgba(255, 87, 51, 0.08));
+  --card-bg-dark: linear-gradient(135deg, rgba(255, 87, 51, 0.25), rgba(255, 87, 51, 0.12));
+  --card-accent: #ff5733;
+  border-left: 5px solid #ff5733;
+  background: var(--card-bg-light);
+}
+
+/* Dark mode variations */
+html[light-mode="dark"] .card1[data-company="Cisco"] {
+  background: var(--card-bg-dark);
+}
+html[light-mode="dark"] .card1[data-company="Armorblox"] {
+  background: var(--card-bg-dark);
+}
+html[light-mode="dark"] .card1[data-company="StatValu"] {
+  background: var(--card-bg-dark);
+}
+html[light-mode="dark"] .card1[data-company="Mercedes-Benz"] {
+  background: var(--card-bg-dark);
+}
+html[light-mode="dark"] .card1[data-company="LCode"] {
+  background: var(--card-bg-dark);
+}
+
 html[light-mode="light"] {
   --bg1-color: linear-gradient(rgba(129, 128, 129, 0.315),#a793c3);
   --text-color: #6c757d;
@@ -129,63 +187,189 @@ section > div {
 .col.gaap {
   padding-left: 0;
   padding-right: 0;
-  margin: 0 auto;
+  margin: 0 auto 30px;
+  display: flex; /* Allow proper flex behavior */
+  flex-direction: column; /* Stack cards vertically */
+  align-items: center; /* Center cards */
+  flex-grow: 1; /* Allow container to grow */
 }
 
 .card1 {
   background: var(--bg1-color);
   display: flex;
   flex-direction: column;
-  max-height: 80%;
+  min-height: auto !important; /* Let content determine height */
+  height: auto !important; /* Auto height - override everything */
+  width: 100%;
+  max-width: 1000px; /* Increased to 1000px for Armorblox content */
   border: none;
-  border-radius: 13px;
+  border-radius: 20px;
   contain: content;
-  margin: 4em auto 36px;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 15%), 2px 2px 7px rgba(0, 0, 0, 14%),
-    3px 3px 8px rgba(0, 0, 0, 13%), 4px 4px 9px rgba(0, 0, 0, 12%);
+  margin: 2em auto 50px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 
+              0 4px 8px rgba(0, 0, 0, 0.08);
   z-index: 1;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: visible;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  border-left: 8px solid var(--card-accent, #bb86fc);
+  border-top: 3px solid var(--card-accent, #bb86fc);
+  flex-grow: 1; /* Allow card to grow */
+  flex-shrink: 0; /* Don't shrink below content */
+}
+
+/* Remove specific height constraints - let content determine height */
+.card1[data-company="Cisco"],
+.card1[data-company="Armorblox"],
+.card1[data-company="StatValu"],
+.card1[data-company="Mercedes-Benz"],
+.card1[data-company="LCode"] {
+  min-height: auto; /* Content-driven height */
+}
+
+/* Add decorative corner elements */
+.card1::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  background: var(--card-accent, #bb86fc);
+  border-radius: 0 20px 0 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.card1:hover::after {
+  opacity: 1;
+}
+
+/* Add floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
 }
 
 .card1:hover {
-  transform: scale(1.06);
-  -webkit-transform: scale(1.06);
-  -moz-transform: scale(1.06);
-  transition: transform 0.4s, 0.4s box-shadow;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px var(--card-accent, rgba(187, 134, 252, 0.4)),
+              0 15px 25px rgba(0, 0, 0, 0.2);
   border-radius: 13px;
-  z-index: 0;
-  -webkit-transition: transform 0.4s, 0.4s box-shadow;
-  -moz-transition: transform 0.4s, 0.4s box-shadow;
+  z-index: 10;
   cursor: pointer;
-}
-
-@media only screen and (min-width: 551px) {
-  .card1:hover {
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 17%), 3px 6px 11px rgba(0, 0, 0, 16%),
-      4px 7px 13px rgba(0, 0, 0, 15%), 5px 8px 14px rgba(0, 0, 0, 14%);
-  }
+  animation: float 3s ease-in-out infinite;
 }
 
 .card1 .card-body {
   display: flex;
   flex-flow: row wrap;
-  padding: 18px;
+  padding: 35px;
   color: var(--head-col);
-  border-radius: 0 13px 13px 0;
+  border-radius: 0 20px 20px 20px;
+  transition: all 0.3s ease;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.8;
+  flex: 1;
+  height: auto; /* Auto height */
+  overflow: visible; /* Ensure content is visible */
+  min-height: auto; /* No minimum height constraint */
+  flex-grow: 1; /* Allow body to grow */
+  flex-shrink: 0; /* Don't shrink below content */
+}
+
+.card1:hover .card-body {
+  transform: scale(1.01);
+}
+
+.card1 .title h3 {
+  transition: color 0.3s ease;
+  font-size: 1.7rem; /* Slightly larger */
+  font-weight: 700;
+  margin-bottom: 16px; /* More space */
+  line-height: 1.3;
+  word-wrap: break-word; /* Prevent text overflow */
+  overflow-wrap: break-word;
+  hyphens: auto; /* Better word breaking */
+}
+
+.card1:hover .title h3 {
+  color: var(--card-accent, #bb86fc);
+  text-shadow: 0 0 10px var(--card-accent, rgba(187, 134, 252, 0.5));
+}
+
+.card1[data-company="Mercedes-Benz"]:hover .title h3 {
+  color: #d1d1d1 !important;
+  text-shadow: 0 0 12px rgba(209, 209, 209, 0.6) !important;
 }
 
 .card1 header {
   flex: 100%;
+  width: 100%;
 }
 
 .card1 .meta {
-  margin-bottom: 22px;
-  margin: 0;
+  margin-bottom: 24px;
   text-align: center;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--meta-col);
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
 }
 
-ul ol {
-  list-style: disc;
-  padding: 3%;
+.card1 .meta .pre-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.card1 .meta .author {
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.card1 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.card1 ul li {
+  font-size: 1rem;
+  line-height: 1.9; /* Increased for better readability */
+  margin-bottom: 18px; /* Increased spacing */
+  padding-left: 28px; /* More padding for text */
+  position: relative;
+  font-weight: 400;
+  text-align: left;
+  word-wrap: break-word; /* Ensure text wraps properly */
+  overflow-wrap: break-word;
+}
+
+.card1 ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--card-accent, #bb86fc);
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.card1 ul li:hover::before {
+  transform: translateX(3px);
+}
+
+.card1 ul li:hover {
+  color: var(--card-accent, #bb86fc);
+  transform: translateX(5px);
+  transition: all 0.3s ease;
 }
 
 .card1 .featured-image {
@@ -231,6 +415,28 @@ ul ol {
 }
 
 @media only screen and (max-width: 767px) {
+  .card1 {
+    min-height: auto; /* Allow natural height on mobile */
+    margin: 1.5em auto 30px;
+  }
+  
+  .card1 .card-body {
+    padding: 25px;
+    min-height: auto; /* Allow natural height */
+  }
+  
+  .card1 .title h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  
+  .card1 ul li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 14px;
+    padding-left: 24px;
+  }
+  
   .card1 .featured-image {
     height: 400px;
     width: 100%;
@@ -423,7 +629,7 @@ ul ol {
 
 @media (max-width: 600px) {
   .page-content .card {
-    height: 580px;
+    height: auto; /* Let content determine height */
   }
 }
 
@@ -472,37 +678,139 @@ ul ol {
 .blog-slider {
   width: 95%;
   position: relative;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   background: var(--bg1-color);
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  padding: 25px;
+  padding: 30px;
   border-radius: 25px;
-  height: 400px;
+  height: 450px;
   transition: all 0.3s;
+  overflow: visible; /* Ensure slides are not hidden */
+  border: 2px solid var(--card-accent, rgba(187, 134, 252, 0.2));
+}
+
+/* Competition Counter */
+.competition-counter {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: var(--card-accent, #bb86fc);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 10;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.3);
+}
+
+.competition-counter .current {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Navigation Arrows */
+.competition-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: var(--card-accent, #bb86fc);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(187, 134, 252, 0.3);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.competition-nav:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(187, 134, 252, 0.4);
+}
+
+.competition-nav.prev {
+  left: -25px;
+}
+
+.competition-nav.next {
+  right: -25px;
+}
+
+/* Progress Bar */
+.competition-progress {
+  position: absolute;
+  bottom: 50px;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.competition-progress-bar {
+  height: 100%;
+  background: var(--card-accent, #bb86fc);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 10px rgba(187, 134, 252, 0.5);
+}
+
+.blog-slider:hover {
+  box-shadow: 0px 20px 100px rgba(34, 35, 58, 0.3);
+  transform: translateY(-2px);
+}
+
+.blog-slider__wrp {
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* Ensure all slides are visible */
+  position: relative;
 }
 @media screen and (max-width: 992px) {
   .blog-slider {
     max-width: 680px;
-    height: 400px;
+    height: auto; /* Let content determine height */
   }
 }
 @media screen and (max-width: 768px) {
   .blog-slider {
-    min-height: 500px;
-    height: auto;
+    min-height: auto; /* Remove min-height constraint */
+    height: auto; /* Auto height */
     margin: 180px auto;
   }
 }
 @media screen and (max-height: 500px) and (min-width: 992px) {
   .blog-slider {
-    height: 350px;
+    height: auto; /* Auto height */
   }
 }
 .blog-slider__item {
   display: flex;
   align-items: center;
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
 }
+
+.blog-slider__item.swiper-slide-active {
+  opacity: 1;
+}
+
+.blog-slider__item.swiper-slide-next,
+.blog-slider__item.swiper-slide-prev {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 768px) {
   .blog-slider__item {
     flex-direction: column;
@@ -607,6 +915,10 @@ ul ol {
 }
 .blog-slider__content {
   padding-right: 25px;
+  background: linear-gradient(135deg, rgba(187, 134, 252, 0.1), rgba(187, 134, 252, 0.05));
+  border-radius: 15px;
+  padding: 25px;
+  border-left: 4px solid var(--card-accent, #bb86fc);
 }
 @media screen and (max-width: 768px) {
   .blog-slider__content {
@@ -704,4 +1016,34 @@ a:link {
   50% {
     transform: skew(-12deg) rotate(-6deg);
   }
+}
+
+/* Blog Slider Pagination */
+.blog-slider__pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.blog-slider__pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+
+.blog-slider__pagination .swiper-pagination-bullet-active {
+  background: var(--card-accent, #bb86fc);
+  transform: scale(1.2);
+}
+
+.blog-slider__pagination .swiper-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.6);
 }

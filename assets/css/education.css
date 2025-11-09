@@ -1,5 +1,26 @@
 @import url(./style.css);
 
+/* CSS Variables for Education Cards - matching experience page */
+html[light-mode="light"] {
+  --bg1-color: linear-gradient(rgba(129, 128, 129, 0.315),#a793c3);
+  --text-color: #6c757d;
+  --shadow-col1: #babdc2;
+  --shadow-col2: #ffffff;
+  --meta-col: #444;
+  --head-col: black;
+}
+
+html[light-mode="dark"] {
+  --bg1-color: linear-gradient(rgba(235, 219, 235, 0.089),#6f49a5);
+  --text-color: #fff;
+  --bg-txt-img: linear-gradient(315deg, #d5adc8 0%, #ff8489 74%);
+  --txt-fill: transparent;
+  --shadow-col1: #191919;
+  --shadow-col2: #1d1d1d;
+  --meta-col: rgb(155, 149, 149);
+  --head-col: #fff;
+}
+
 /* Dark and Light theme */
 
 *{
@@ -9,6 +30,49 @@
   font-family: "Poppins", sans-serif;
   max-width:120%;
   height:auto;
+}
+
+/* Context-specific education card colors */
+#mooc .card[data-institution="Rutgers"] {
+  --edu-bg-light: linear-gradient(135deg, rgba(204, 0, 0, 0.1), rgba(204, 0, 0, 0.05));
+  --edu-bg-dark: linear-gradient(135deg, rgba(204, 0, 0, 0.2), rgba(204, 0, 0, 0.1));
+  --edu-accent: #cc0000;
+  border-top: 4px solid #cc0000;
+}
+
+#mooc .card[data-institution="Manipal"] {
+  --edu-bg-light: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05));
+  --edu-bg-dark: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 123, 255, 0.1));
+  --edu-accent: #007bff;
+  border-top: 4px solid #007bff;
+}
+
+#mooc .card[data-institution="Coursera"] {
+  --edu-bg-light: linear-gradient(135deg, rgba(0, 136, 102, 0.1), rgba(0, 136, 102, 0.05));
+  --edu-bg-dark: linear-gradient(135deg, rgba(0, 136, 102, 0.2), rgba(0, 136, 102, 0.1));
+  --edu-accent: #008866;
+  border-top: 4px solid #008866;
+}
+
+#mooc .card[data-institution="Udemy"] {
+  --edu-bg-light: linear-gradient(135deg, rgba(237, 92, 18, 0.1), rgba(237, 92, 18, 0.05));
+  --edu-bg-dark: linear-gradient(135deg, rgba(237, 92, 18, 0.2), rgba(237, 92, 18, 0.1));
+  --edu-accent: #ed5c12;
+  border-top: 4px solid #ed5c12;
+}
+
+#mooc .card[data-institution="LinkedIn"] {
+  --edu-bg-light: linear-gradient(135deg, rgba(0, 119, 181, 0.1), rgba(0, 119, 181, 0.05));
+  --edu-bg-dark: linear-gradient(135deg, rgba(0, 119, 181, 0.2), rgba(0, 119, 181, 0.1));
+  --edu-accent: #0077b5;
+  border-top: 4px solid #0077b5;
+}
+
+#mooc .card[data-institution="Capgemini"] {
+  --edu-bg-light: linear-gradient(135deg, rgba(18, 102, 241, 0.1), rgba(18, 102, 241, 0.05));
+  --edu-bg-dark: linear-gradient(135deg, rgba(18, 102, 241, 0.2), rgba(18, 102, 241, 0.1));
+  --edu-accent: #1266f1;
+  border-top: 4px solid #1266f1;
 }
 
 html[light-mode="light"] {
@@ -127,7 +191,7 @@ h4 {
 }
 
 .s2 h4,
-p {
+.s2 p {
   color: var(--head-col);
 }
 
@@ -204,25 +268,114 @@ p {
 }
 
 #mooc .card {
-  border-radius: 5px;
+  border-radius: 20px;
   background: var(--tint-col);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
-  transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
-    0.3s box-shadow,
-    0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 
+              0 4px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  overflow: visible;
+  min-height: 280px;
+  height: auto;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Apply context-specific backgrounds for education */
+html[light-mode="light"] #mooc .card[data-institution="Rutgers"] {
+  background: var(--edu-bg-light);
+}
+html[light-mode="light"] #mooc .card[data-institution="Manipal"] {
+  background: var(--edu-bg-light);
+}
+html[light-mode="light"] #mooc .card[data-institution="Coursera"] {
+  background: var(--edu-bg-light);
+}
+html[light-mode="light"] #mooc .card[data-institution="Udemy"] {
+  background: var(--edu-bg-light);
+}
+html[light-mode="light"] #mooc .card[data-institution="LinkedIn"] {
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05));
+}
+html[light-mode="light"] #mooc .card[data-institution="Capgemini"] {
+  background: var(--edu-bg-light);
+}
+
+html[light-mode="dark"] #mooc .card[data-institution="Rutgers"] {
+  background: var(--edu-bg-dark);
+}
+html[light-mode="dark"] #mooc .card[data-institution="Manipal"] {
+  background: var(--edu-bg-dark);
+}
+html[light-mode="dark"] #mooc .card[data-institution="Coursera"] {
+  background: var(--edu-bg-dark);
+}
+html[light-mode="dark"] #mooc .card[data-institution="Udemy"] {
+  background: var(--edu-bg-dark);
+}
+html[light-mode="dark"] #mooc .card[data-institution="LinkedIn"] {
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 123, 255, 0.1));
+}
+html[light-mode="dark"] #mooc .card[data-institution="Capgemini"] {
+  background: var(--edu-bg-dark);
+}
+
+#mooc .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(187, 134, 252, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+#mooc .card:hover::before {
+  left: 100%;
 }
 
 #mooc .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 35px var(--edu-accent, rgba(187, 134, 252, 0.35)), 
+              0 12px 22px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
 }
 
 #mooc .card-body {
   background-color: var(--bg1-color);
-  padding: 1px;
+  padding: 28px;
+  transition: all 0.3s ease;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 120px;
+}
+
+#mooc .card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.4;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--edu-accent, #bb86fc);
+  transition: color 0.3s ease;
+}
+
+#mooc .card:hover .card-title {
+  color: var(--edu-accent, #bb86fc);
+  text-shadow: 0 0 10px var(--edu-accent, rgba(187, 134, 252, 0.5));
+}
+
+#mooc .card-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 400;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* SVG animation */
@@ -421,15 +574,9 @@ header p {
   font-weight: bold;
 }
 
-/* Draws line */
+/* Draws line - DISABLED for new education cards */
 .timeline::before {
-  content: "";
-  background: #896cb6;
-  width: 5px;
-  height: 95%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  display: none !important;
 }
 
 .timeline-item {
@@ -463,42 +610,19 @@ header p {
   clear: both;
 }
 
-/* This will give the cards to their respective sides */
+/* This will give the cards to their respective sides - DISABLED for new cards */
 .timeline-content {
-  position: relative;
-  width: 100%;
-  padding: 10px 30px;
-  border-radius: 4px;
-  /* max-width: 120%; */
-  font-size: 14px;
-  background: #640f9c;
-  box-shadow: 0 20px 25px 15px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: row;
-  /* align-items: left; */
+  all: unset !important;
+  display: block !important;
+  width: 100% !important;
 }
 
 .timeline-content::after {
-  content: "";
-  position: absolute;
-  border-style: solid;
-  width: 0;
-  height: 0;
-  top: 30px;
-  right: -15px;
-  border-width: 10px 0 10px 15px;
-  border-color: transparent transparent transparent #f5f5f5;
+  display: none !important;
 }
 
 .timeline-img {
-  width: 30px;
-  height: 30px;
-  background: #3F51B5;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  margin-top: 25px;
-  margin-left: -15px;
+  display: none !important;
 }
 
 .bnt-more {
@@ -520,38 +644,515 @@ header p {
   text-decoration: none;
 }
 
+/* Education Cards - Matching Experience Page Exactly */
 .timeline-card {
   padding: 0 !important;
-
+  background: transparent !important;
+  border: none !important;
+  margin-bottom: 3rem;
 }
 
-.timeline-card p {
-  padding: 0 20px;
+.education-card {
+  background: var(--bg1-color);
+  display: flex;
+  flex-direction: column;
+  min-height: auto !important;
+  height: auto !important;
+  width: 100%;
+  max-width: 1000px;
+  border: none;
+  border-radius: 20px;
+  contain: content;
+  margin: 2em auto 50px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 
+              0 4px 8px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: visible;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  border-left: 8px solid var(--edu-accent, #0070f4);
+  border-top: 3px solid var(--edu-accent, #0070f4);
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
-.timeline-card h4{
-  padding: 0 2px;
-  margin-left: 2px;
+/* Decorative corner element */
+.education-card::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 20px;
+  height: 20px;
+  background: #0070f4;
+  border-radius: 0 20px 0 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+/* Institution-specific corner elements */
+.education-card[data-institution="Rutgers"]::after {
+  background: #cc0000;
+}
+.education-card[data-institution="Manipal"]::after {
+  background: #003f7f;
+}
+.education-card[data-institution="Pre-University"]::after {
+  background: #ff6b35;
+}
+.education-card[data-institution="High-School"]::after {
+  background: #28a745;
+}
+
+.education-card:hover::after {
+  opacity: 1;
+}
+
+/* Floating animation */
+@keyframes eduFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.education-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 112, 244, 0.4),
+              0 15px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 13px;
+  z-index: 10;
+  cursor: pointer;
+  animation: eduFloat 3s ease-in-out infinite;
+}
+
+/* Institution-specific hover shadows */
+.education-card[data-institution="Rutgers"]:hover {
+  box-shadow: 0 20px 40px rgba(204, 0, 0, 0.4),
+              0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.education-card[data-institution="Manipal"]:hover {
+  box-shadow: 0 20px 40px rgba(0, 63, 127, 0.4),
+              0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.education-card[data-institution="Pre-University"]:hover {
+  box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4),
+              0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.education-card[data-institution="High-School"]:hover {
+  box-shadow: 0 20px 40px rgba(40, 167, 69, 0.4),
+              0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Institution-specific accent colors */
+.education-card[data-institution="Rutgers"] { 
+  --edu-accent: #cc0000;
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.08), rgba(204, 0, 0, 0.03)) !important;
+}
+.education-card[data-institution="Manipal"] { 
+  --edu-accent: #003f7f;
+  background: linear-gradient(135deg, rgba(0, 63, 127, 0.08), rgba(0, 63, 127, 0.03)) !important;
+}
+.education-card[data-institution="Coursera"] { 
+  --edu-accent: #008866;
+  background: linear-gradient(135deg, rgba(0, 136, 102, 0.08), rgba(0, 136, 102, 0.03)) !important;
+}
+.education-card[data-institution="Udemy"] { 
+  --edu-accent: #ed5c12;
+  background: linear-gradient(135deg, rgba(237, 92, 18, 0.08), rgba(237, 92, 18, 0.03)) !important;
+}
+.education-card[data-institution="LinkedIn"] { 
+  --edu-accent: #0077b5;
+  background: linear-gradient(135deg, rgba(0, 119, 181, 0.08), rgba(0, 119, 181, 0.03)) !important;
+}
+.education-card[data-institution="Capgemini"] { 
+  --edu-accent: #0073e6;
+  background: linear-gradient(135deg, rgba(0, 115, 230, 0.08), rgba(0, 115, 230, 0.03)) !important;
+}
+.education-card[data-institution="Pre-University"] { 
+  --edu-accent: #ff6b35;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.08), rgba(255, 107, 53, 0.03)) !important;
+}
+.education-card[data-institution="High-School"] { 
+  --edu-accent: #28a745;
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.08), rgba(40, 167, 69, 0.03)) !important;
+}
+
+/* Dark mode backgrounds */
+body.dark-mode .education-card[data-institution="Rutgers"] { 
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.15), rgba(204, 0, 0, 0.08)) !important;
+}
+body.dark-mode .education-card[data-institution="Manipal"] { 
+  background: linear-gradient(135deg, rgba(0, 63, 127, 0.15), rgba(0, 63, 127, 0.08)) !important;
+}
+body.dark-mode .education-card[data-institution="Coursera"] { 
+  background: linear-gradient(135deg, rgba(0, 136, 102, 0.15), rgba(0, 136, 102, 0.08)) !important;
+}
+body.dark-mode .education-card[data-institution="Udemy"] { 
+  background: linear-gradient(135deg, rgba(237, 92, 18, 0.15), rgba(237, 92, 18, 0.08)) !important;
+}
+body.dark-mode .education-card[data-institution="LinkedIn"] { 
+  background: linear-gradient(135deg, rgba(0, 119, 181, 0.15), rgba(0, 119, 181, 0.08)) !important;
+}
+body.dark-mode .education-card[data-institution="Capgemini"] { 
+  background: linear-gradient(135deg, rgba(0, 115, 230, 0.15), rgba(0, 115, 230, 0.08)) !important;
+}
+body.dark-mode .education-card[data-institution="Pre-University"] { 
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.15), rgba(255, 107, 53, 0.08)) !important;
+}
+body.dark-mode .education-card[data-institution="High-School"] { 
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.15), rgba(40, 167, 69, 0.08)) !important;
+}
+
+/* Card body - matching experience */
+.education-card .card-body {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 35px;
+  color: #000000 !important;
+  border-radius: 0 20px 20px 20px;
+  transition: all 0.3s ease;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.8;
+  flex: 1;
+  height: auto;
+  overflow: visible;
+  min-height: auto;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+/* Dark mode override for card body */
+body.dark-mode .education-card .card-body {
+  color: #ffffff !important;
+}
+
+/* Highest specificity dark mode text overrides */
+body.dark-mode .education-card .card-body .title h4,
+body.dark-mode .education-card .card-body .meta,
+body.dark-mode .education-card .card-body .meta *,
+body.dark-mode .education-card .card-body p,
+body.dark-mode .education-card .card-body strong,
+body.dark-mode .education-card .card-body ul,
+body.dark-mode .education-card .card-body ul li {
+  color: #ffffff !important;
+}
+
+.education-card:hover .card-body {
+  transform: scale(1.01);
+}
+
+.education-card .title h4 {
+  transition: color 0.3s ease;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  color: #000000 !important;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Dark mode override for headings */
+body.dark-mode .education-card .title h4 {
+  color: #ffffff !important;
+}
+
+.education-card:hover .title h4 {
+  color: #0070f4 !important;
+  text-shadow: 0 0 10px rgba(0, 112, 244, 0.5);
+}
+
+/* Institution-specific hover colors */
+.education-card[data-institution="Rutgers"]:hover .title h4 {
+  color: #cc0000 !important;
+  text-shadow: 0 0 10px rgba(204, 0, 0, 0.5);
+}
+.education-card[data-institution="Manipal"]:hover .title h4 {
+  color: #003f7f !important;
+  text-shadow: 0 0 10px rgba(0, 63, 127, 0.5);
+}
+.education-card[data-institution="Pre-University"]:hover .title h4 {
+  color: #ff6b35 !important;
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+.education-card[data-institution="High-School"]:hover .title h4 {
+  color: #28a745 !important;
+  text-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+}
+
+.education-card header {
+  flex: 100%;
+  width: 100%;
+  background: transparent !important;
+}
+
+.education-card .meta {
+  margin-bottom: 24px;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #444444 !important;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  background: transparent !important;
+}
+
+/* Dark mode override for meta */
+body.dark-mode .education-card .meta {
+  color: #ffffff !important;
+}
+
+.education-card .meta .pre-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  background: transparent !important;
+}
+
+.education-card .meta .author {
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.85;
+  background: transparent !important;
+}
+
+.education-card .title {
+  background: transparent !important;
+}
+
+/* Remove all old timeline backgrounds */
+.education-card .timeline-img-header {
+  background: transparent !important;
+  display: none !important;
+}
+
+.education-card .date {
+  background: transparent !important;
+}
+
+.education-card header,
+.education-card .meta,
+.education-card .meta *,
+.education-card .title,
+.education-card .title * {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.education-card p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #000000 !important;
+  margin-bottom: 18px;
+  font-weight: 400;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Dark mode override for paragraphs */
+body.dark-mode .education-card p {
+  color: #ffffff !important;
+}
+
+.education-card p:last-child {
+  margin-bottom: 0;
+}
+
+.education-card strong {
+  font-weight: 600;
+  color: #000000 !important;
+}
+
+/* Dark mode override for strong */
+body.dark-mode .education-card strong {
+  color: #ffffff !important;
+}
+
+/* List styling - matching experience page exactly */
+.education-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.education-card ul li {
+  font-size: 1rem;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  padding-left: 28px;
+  position: relative;
+  font-weight: 400;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: #000000 !important;
+}
+
+/* Dark mode override for list items */
+body.dark-mode .education-card ul li {
+  color: #ffffff !important;
+}
+
+.education-card ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #0070f4;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.education-card ul li:hover::before {
+  transform: translateX(3px);
+}
+
+.education-card ul li:hover {
+  color: #0070f4 !important;
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}
+
+/* Institution-specific list hover colors */
+.education-card[data-institution="Rutgers"] ul li::before {
+  color: #cc0000;
+}
+.education-card[data-institution="Rutgers"] ul li:hover {
+  color: #cc0000 !important;
+}
+.education-card[data-institution="Manipal"] ul li::before {
+  color: #003f7f;
+}
+.education-card[data-institution="Manipal"] ul li:hover {
+  color: #003f7f !important;
+}
+.education-card[data-institution="Pre-University"] ul li::before {
+  color: #ff6b35;
+}
+.education-card[data-institution="Pre-University"] ul li:hover {
+  color: #ff6b35 !important;
+}
+.education-card[data-institution="High-School"] ul li::before {
+  color: #28a745;
+}
+.education-card[data-institution="High-School"] ul li:hover {
+  color: #28a745 !important;
+}
+
+.education-card ul li:last-child {
+  margin-bottom: 0;
+}
+
+/* ULTIMATE DARK MODE OVERRIDE - Force all text white */
+body.dark-mode .education-card h4,
+body.dark-mode .education-card .title h4,
+body.dark-mode .education-card .meta *,
+body.dark-mode .education-card .title,
+body.dark-mode .education-card .title *,
+body.dark-mode .education-card ul,
+body.dark-mode .education-card ul li,
+body.dark-mode .education-card ul li * {
+  color: #ffffff !important;
+}
+
+/* Attribute-based dark mode used site-wide (matches experience.css) */
+html[light-mode="dark"] .education-card,
+html[light-mode="dark"] .education-card .card-body,
+html[light-mode="dark"] .education-card .title h4,
+html[light-mode="dark"] .education-card .meta,
+html[light-mode="dark"] .education-card .meta *,
+html[light-mode="dark"] .education-card p,
+html[light-mode="dark"] .education-card strong,
+html[light-mode="dark"] .education-card ul li,
+html[light-mode="dark"] .education-card ul li * {
+  color: #ffffff !important;
+}
+
+/* Education page hero header: force BLACK in dark theme (only the top heading and quote) */
+html[light-mode="dark"] .px-md-5 .education_head,
+html[light-mode="dark"] .px-md-5 .education_head *,
+html[light-mode="dark"] .px-md-5 .pre-heading,
+html[light-mode="dark"] .px-md-5 .dropdown1,
+html[light-mode="dark"] .px-md-5 .dropdown2,
+html[light-mode="dark"] .px-md-5 .main-heading,
+html[light-mode="dark"] .px-md-5 h2,
+html[light-mode="dark"] .px-md-5 p,
+body.dark-mode .px-md-5 .education_head,
+body.dark-mode .px-md-5 .education_head *,
+body.dark-mode .px-md-5 .pre-heading,
+body.dark-mode .px-md-5 .dropdown1,
+body.dark-mode .px-md-5 .dropdown2,
+body.dark-mode .px-md-5 .main-heading,
+body.dark-mode .px-md-5 h2,
+body.dark-mode .px-md-5 p {
+  color: #000000 !important;
+}
+
+/* Dark mode hero section background - full width */
+html[light-mode="dark"] body,
+html[light-mode="dark"] .container.pt-5,
+html[light-mode="dark"] .container.pt-5 section,
+html[light-mode="dark"] .container-fluid.px-3.pt-5,
+body.dark-mode body,
+body.dark-mode .container.pt-5,
+body.dark-mode .container.pt-5 section,
+body.dark-mode .container-fluid.px-3.pt-5 {
+  background-color: #141516 !important;
+}
+
+/* Remove container max-width constraints in dark mode for education page */
+html[light-mode="dark"] .container.pt-5,
+body.dark-mode .container.pt-5 {
+  max-width: 100% !important;
+}
+
+html[light-mode="dark"] .education-hero h2,
+html[light-mode="dark"] .education-hero h2 *,
+html[light-mode="dark"] .education-hero p,
+html[light-mode="dark"] .education-hero .pre-heading,
+html[light-mode="dark"] .education-hero .dropdown1,
+html[light-mode="dark"] .education-hero .dropdown2,
+body.dark-mode .education-hero h2,
+body.dark-mode .education-hero h2 *,
+body.dark-mode .education-hero p,
+body.dark-mode .education-hero .pre-heading,
+body.dark-mode .education-hero .dropdown1,
+body.dark-mode .education-hero .dropdown2 {
+  color: #ffffff !important;
+}
+
+/* Specific override for edu_background span - bright purple in dark mode */
+html[light-mode="dark"] .edu_background,
+body.dark-mode .edu_background {
+  color: #4e00bb !important;
+}
+
+/* ULTIMATE override for edu_background - highest specificity */
+html[light-mode="dark"] body .container .container-fluid .px-md-5 .education-hero .edu_background,
+body.dark-mode body .container .container-fluid .px-md-5 .education-hero .edu_background,
+html[light-mode="dark"] .education-hero .edu_background,
+body.dark-mode .education-hero .edu_background,
+html[light-mode="dark"] .edu_background,
+body.dark-mode .edu_background {
+  color: #4e00bb !important;
 }
 
 .timeline-item .timeline-img-header {
-  /*background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)), url("https://picsum.photos/1000/800/?random") center center no-repeat;*/
-  background: linear-gradient(#000000, #640f9c);
-  /* background-size: cover; */
-  margin-right: 45%;
-
+  display: none !important;
 }
 
 .timeline-img-header h4{
-  height: 300px;
-  position: relative;
-  color: #a35fcf;
-  top: 0px;
-  margin-right: 5%;
-  
-  
-  /*background-image: url('assets/images/education-page/edTimeline1.png');*/
-
+  display: none !important;
 }
 
 /* .timeline-img-header h2 {
@@ -570,26 +1171,25 @@ blockquote {
 }
 
 .date {
-  background: linear-gradient(#000000, #640f9c);
+  background: transparent !important;
   font-size: 14px;
   display: inline-block;
-  color: #FFFFFF;
-  padding: 10px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  color: var(--meta-col);
+  padding: 0;
+  position: relative;
+  top: 0;
+  border-radius: 0;
 }
+
 .text {
-  position: absolute;
+  position: relative !important;
   font-size: 16px;
-  display: inline-block;
-  color: #FFFFFF;
-  top: 5;
-  right: 5;
-  margin-left: 35%;
-  margin-right: 5%;
-  margin-top: 7%;
-  left:50;
+  display: block !important;
+  color: var(--head-col) !important;
+  top: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
 }
 
 h6 {

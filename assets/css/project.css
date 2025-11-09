@@ -27,10 +27,12 @@ html{
 body {
     color: var(--text);
     background-color: var(--bg);
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .projects_head {
-    font-weight: bold;
+    font-weight: 700;
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 
@@ -190,11 +192,18 @@ a:hover {
 .card .wrapper {
     background-color: #fff;
     border: 0;
-    border-radius: 10px;
-    min-height: 21.5rem;
+    border-radius: 16px;
+    min-height: 24rem;
+    height: auto;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 19px 38px var(--shadow1), 0 15px 12px var(--shadow2);
+    box-shadow: 0 10px 20px var(--shadow1), 0 6px 12px var(--shadow2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card .wrapper:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--shadow1), 0 10px 20px var(--shadow2);
 }
 
 .card .wrapper:hover .data {
@@ -206,85 +215,88 @@ a:hover {
     bottom: 0;
     width: 100%;
     transition: transform 0.3s;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.65);
+    min-height: 180px;
+    height: auto;
 }
 
 @media(min-width: 60rem) {
     .card .data {
-        height: 76%;
+        min-height: 200px;
+        height: auto;
     }
 }
 
 .card .data .content {
-    padding: 1em;
+    padding: 1.5em;
     position: relative;
     z-index: 1;
 }
 
 .card .title-div {
     width: 100%;
-    height: 35%;
-    margin: 0;
+    height: auto;
+    margin: 0 0 1rem 0;
 }
 
 .card .title {
-    padding-bottom: 2rem;
-    margin-top: 0em;
-    font-size: 0.65em;
+    padding-bottom: 1rem;
+    margin-top: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 @media(min-width: 411px) {
     .card .title {
-        font-size: 0.8em;
-    }
-}
-
-@media(min-width: 365px) {
-    .card .title {
-        font-size: 1em;
+        font-size: 1.2rem;
     }
 }
 
 @media(min-width: 425px) {
     .card .title {
-        font-size: 1.3em;
+        font-size: 1.4rem;
     }
 }
 
 @media(min-width: 554px) {
     .card .title {
-        font-size: 1.5em;
+        font-size: 1.5rem;
     }
 }
 
 @media(min-width: 60rem) {
     .card .title {
-        padding-bottom: 4rem;
-        font-size: 1.2em;
+        padding-bottom: 1.5rem;
+        font-size: 1.4rem;
     }
 }
 
 .card .text {
-    height: 60px;
-    font-size: 0.5em;
+    height: auto;
+    min-height: 70px;
+    font-size: 0.9rem;
+    line-height: 1.6;
     margin: 0;
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 @media(min-width: 311px) {
     .card .text {
-        font-size: 0.7;
+        font-size: 0.9rem;
     }
 }
 
 @media(min-width: 365px) {
     .card .text {
-        font-size: 0.85em;
+        font-size: 0.95rem;
     }
 }
 
 @media(min-width: 425px) {
     .card .text {
-        font-size: 1em;
+        font-size: 1rem;
     }
 }
 

@@ -161,10 +161,15 @@ function showExperience() {
 const showCards = () => {
   let output = "";
   moocscards.forEach(
-    ({ title, cardImage, moocLink }) =>
-    (output += `        
-        <div class="col-6 col-md-3 col-sm-4 column" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="600" >  
-            <div class="card mb-3 mx-auto">
+    ({ title, cardImage, moocLink }, index) => {
+      let institution = "LinkedIn";
+      if (cardImage.includes("coursera")) institution = "Coursera";
+      else if (cardImage.includes("udemy")) institution = "Udemy";
+      else if (cardImage.includes("capgemini")) institution = "Capgemini";
+      
+      (output += `        
+        <div class="col-6 col-md-3 col-sm-4 column" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="${600 + index * 50}" >  
+            <div class="card mb-3 mx-auto" data-institution="${institution}">
                <div class="content">
                   <div class="content-overlay"></div>
                     <img src=${cardImage} class="card-img-top content-image">     
@@ -173,11 +178,12 @@ const showCards = () => {
                   </div>
                 </div>
                 <div class="card-body">
-                    <h6 class="mt-0 py-2 text-center font-weight-bold mooc-title" style="font-size:12px;">${title}</h6>
+                    <h6 class="mt-0 py-2 text-center font-weight-bold mooc-title" style="font-size:14px; line-height:1.4;">${title}</h6>
                 </div>
             </div>
         </div>        
       `)
+    }
   );
   moocs.innerHTML = output;
 };
