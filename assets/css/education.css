@@ -111,27 +111,7 @@ html {
 
 /* -----Education Section CSS----- */
 
- @media (max-width: 767px) {
-  .dropdown1 {
-    position: absolute;
-    text-align: center;
-    padding-right: 1.2rem;
-    z-index: 3;
-    padding-left: 3.5%;
-  }
-  .dropdown2 {
-    position: absolute;
-    text-align: center;
-    padding-top: 10rem;
-    padding-left: 3.5%;
-    z-index: 3;
-  }
-  .godown {
-    position: absolute;
-    z-index: 1;
-    padding-top: 8rem;
-  }
-}
+/* mobile-specific dropdown positioning removed to preserve heading layout */
 
 .sect {
   height: auto;
