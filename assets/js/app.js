@@ -122,7 +122,7 @@ let footer = $(`
               </svg>
         </div>
         <div class="social-icons">
-                <a class="socialicon linkedin" href="https://www.linkedin.com/in/advaith-s-rao-67ab82139/" target="_blank" rel="author">
+                <a class="socialicon linkedin" href="https://www.linkedin.com/in/advaithrao/" target="_blank" rel="author">
                     <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="#0077B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
@@ -155,9 +155,9 @@ let footer = $(`
 
 //"Scroll to top" button
 let upArrow = $(`
-  <button id="btnScrollToTop" onclick="scrollToTop()"><i class="fas fa-2x fa-angle-up"></i></button>
-  <link rel="stylesheet" type="text/css" href="./css/style.css" />
-  })
+  <button id="btnScrollToTop" aria-label="Scroll to top" onclick="scrollToTop()">
+    <i class="fas fa-angle-up" aria-hidden="true"></i>
+  </button>
 `);
 
 //function for the "Scroll To Top" button to detect the footer

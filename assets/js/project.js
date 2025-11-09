@@ -67,19 +67,21 @@ const showCards = () => {
   projects.forEach(
     ({ title, cardImage, description, Githublink }) => {
       (output += `       
-        <div class="column skill-card card" style="margin: 15px"data-aos="zoom-in-up" data-aos-easing="linear" data-aos-delay="300" data-aos-duration="600" href="${Githublink}">
-          <div class="wrapper" style="background: url(${cardImage}) center / cover no-repeat;">
-            <div class="header">
-            </div>
-            <div class="data">
-              <div class="content">
-              <div class="title-div">
-              <p class="title" style="font-size:26px;"><a href="${Githublink}">${title}</a></p>
-              <p class="title" style="font-size:12px;"><a href="${Githublink}">${description}</a></p>
+        <div class="column skill-card card" style="margin: 15px" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-delay="300" data-aos-duration="600">
+          <a class="project-card-link" href="${Githublink}" aria-label="Open ${title}">
+            <div class="wrapper" style="background: url(${cardImage}) center / cover no-repeat;">
+              <div class="header">
               </div>
+              <div class="data">
+                <div class="content">
+                  <div class="title-div">
+                    <p class="title" style="font-size:26px;">${title}</p>
+                    <p class="title project-description" style="font-size:12px;">${description}</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>`
       )
     }

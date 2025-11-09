@@ -110,6 +110,20 @@ body {
     animation: fadeIn 0.6s ease-in;
 }
 
+.section-heading,
+.s2 .head,
+.heading1,
+.music-hero .main-heading,
+.experience_head,
+.education_head {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-size: clamp(2.1rem, 1.4rem + 1.5vw, 2.8rem);
+    margin: 1.75rem 0 1.5rem;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -144,6 +158,15 @@ body {
     right: 10px;
     animation: up 1.5s infinite;
     -webkit-animation: up 1.5s infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+#btnScrollToTop i {
+    color: inherit;
+    font-size: 1.5rem;
 }
 
 

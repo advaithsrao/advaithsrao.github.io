@@ -335,6 +335,20 @@ input[type="text"] {
     border-radius: 10px;
 }
 
+.project-card-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card-link:focus-visible {
+    outline: 2px solid #bb86fc;
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
 .skill-card .header {
     color: #fff;
     padding: 1em;
