@@ -6,40 +6,30 @@ AOS.init();
 const experiencecards = document.querySelector(".experience-cards");
 const exp = [
   {
-    title: "Senior AI Researcher",
+    title: "Senior AI Engineer",
     cardImage: "../images/experience-page/cisco.png",
     place: "Cisco",
     time: "New York, NY | (July 2023 - Present)",
-    desp: "<li>Led the LLMOps Track for Cisco AI Canvas with automated performance monitoring and scalable data lifecycle management, enhancing model reliability and accelerating adoption across diverse product capabilities.</li>" +
-          "<li>Spearheaded the development of Unified AI Assistant for Security Cloud Control, with cross-product and multi-skill user query support by leveraging semantic routing and multi-step planner & executor agents.</li>" +
-          "<li>Built Documentation Q&A capability for Cisco AI Assistant through state-of-the-art RAG techniques, supporting over 1M user queries per week over 10+ Cisco Products, including Duo, Webex, and Thousand Eyes.</li>" +
-          "<li>Developed and maintained in-house AI abstractions for Cisco Central AI team that integrate LLMs, vector databases, embedders, and agents to standardize ML workflows across all orchestration services.</li>" +
-          "<li>Conducted applied research to fine-tune a cross-encoder model for an Inline Citations engine, achieving a 0.96 NDCG@5 and improving retrieval relevance in citation generation.</li>" +
-          "<li>Developed the Evaluation Suite for Cisco AI Assistant using Semantic Similarity and LLM based Scores, automating LLM validation with high accuracy.</li>",
+    desp: "<li>Enhanced the Routing Engine for Cisco AI Canvas using Claude Agents SDK spanning 20+ products and 1,000+ capabilities supporting complex cross-product queries, achieving over 98% routing accuracy.</li>" +
+          "<li>Led the LLMOps track for Cisco AI Canvas, automating product onboarding through data lifecycle management, performance monitoring, and intent disambiguation, simplifying & reducing partner onboarding time by 96%.</li>" +
+          "<li>Spearheaded the Unified AI Assistant for Security Cloud Control, enabling natural-language orchestration and delivering cross-product query support over Cisco Security Products.</li>" +
+          "<li>Built Documentation Q&A capability for Cisco AI Assistant through state-of-the-art RAG techniques, supporting user queries over 10+ Cisco Products, including Duo, Thousand Eyes, and Cisco Defense Orchestrator.</li>",
   },
   {
     title: "Machine Learning Engineer",
     cardImage: "../images/experience-page/ablox.png",
     place: "Armorblox (Acquired by Cisco)",
-    time: "Palo Alto, CA | (March 2020 - July 2023)",
+    time: "(Remote) Palo Alto, CA | (March 2020 - July 2023)",
     desp: "<li>Spearheaded the identification of 20+ categories of fraud emails with a 99% F1-score using a Multiclass Classifier and Contextual Embeddings, protecting sensitive customer data from low-visibility zero-day vulnerabilities.</li>" +
-          "<li>Orchestrated detection of phishing attacks recall by 10% through Correlation Analysis on 10M+ email link texts, identifying threat patterns & developing heuristics, aligning security measures with stakeholder goals.</li>" +
           "<li>Achieved 3x faster model updates by creating an end-to-end MLOps pipeline with Python, Dask, and Comet with periodic data fetch, model training, logging, and deployment to production.</li>" +
-          "<li>Pioneered the detection of 20K+ Social Engineering emails per month using content-specific Machine Learning models.</li>" +
-          "<li>Drove Graymail detection enhancements by analyzing historical spam data and building high-fidelity Machine Learning models, flagging 20% more spam emails and achieving a 40% reduction in false positives during A/B testing.</li>" +
-          "<li>Led a 12-member data analyst team in dissecting fraud data trends, conducting Hypothesis Testing on model updates, and presenting impactful reports to stakeholders.</li>" +
-          "<li>Enhanced internal data workflows by collaborating with cross-functional teams to develop an in-house data platform with 10+ analysis and curation tools.</li>" +
-          "<li>Developed data-driven fraud strategies to prevent fraud losses over $1M, working with Threat Researchers to understand fraud email trends, A/B test model updates, and monitor model health constantly.</li>" +
-          "<li>Achieved enhanced data cleanup and fraud detection by implementing email zoning – segmenting email text into banners, greetings, body, signatures, and footers, with a weighted F1-score of 0.99 using jusText and CRF.</li>",
+          "<li>Orchestrated detection of phishing attacks recall by 10% through Correlation Analysis on 10M+ email link texts, identifying threat patterns & developing heuristics, aligning security measures with stakeholder goals.</li>",
   },
   {
     title: "Data Scientist",
     cardImage: "assets/images/experience-page/gsoc.png",
     place: "StatValu Private Limited",
-    time: "Bangalore, India | (Nov 2019 - Mar 2020)",
-    desp: "<li>Reduced health insurance risk assessment time by 60% for underwriters by leveraging Universal Sentence Encoder embeddings and K-Means clustering to efficiently group documents for faster review.</li>" +
-          "<li>Developed an ML pipeline to extract affirmative sentences in medical documents with 97% F1-score using Azure OCR, TF-IDF, and Linear SVM.</li>" +
-          "<li>Parallelized processing on a node-level execution basis by deploying models onto production, utilizing multiple AWS EC2 instances linked to an EMR, and reducing overall execution time by 25%.</li>",
+    time: "Bangalore, India | (November 2019 - March 2020)",
+    desp: "<li>Reduced health insurance risk assessment time by 60% for underwriters by leveraging Universal Sentence Encoder embeddings and K-Means clustering to efficiently group documents for faster review.</li>",
   },
   {
     title: "Deep Learning Intern",

@@ -33,18 +33,42 @@ html[light-mode="dark"] {
 }
 
 /* Context-specific education card colors */
-#mooc .card[data-institution="Rutgers"] {
-  --edu-bg-light: linear-gradient(135deg, rgba(204, 0, 0, 0.1), rgba(204, 0, 0, 0.05));
-  --edu-bg-dark: linear-gradient(135deg, rgba(204, 0, 0, 0.2), rgba(204, 0, 0, 0.1));
+.education-card[data-institution="Rutgers"] {
   --edu-accent: #cc0000;
-  border-top: 4px solid #cc0000;
+  --edu-bg-light: rgba(204, 0, 0, 0.03);
+  --edu-bg-dark: rgba(204, 0, 0, 0.08);
+  border-top: 4px solid var(--edu-accent);
 }
 
-#mooc .card[data-institution="Manipal"] {
-  --edu-bg-light: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05));
-  --edu-bg-dark: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 123, 255, 0.1));
+.education-card[data-institution="Manipal"] {
   --edu-accent: #007bff;
-  border-top: 4px solid #007bff;
+  --edu-bg-light: rgba(0, 123, 255, 0.03);
+  --edu-bg-dark: rgba(0, 123, 255, 0.08);
+  border-top: 4px solid var(--edu-accent);
+}
+
+.education-card {
+    background: var(--edu-bg-light) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    padding: 20px !important;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}
+
+html[light-mode="dark"] .education-card {
+    background: var(--edu-bg-dark) !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
+}
+
+html[light-mode="dark"] .education-card:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
 }
 
 #mooc .card[data-institution="Coursera"] {

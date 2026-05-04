@@ -153,12 +153,55 @@ let footer = $(`
 </footer>
 `);
 
+const CONTACT_EMAIL = "advaith652@gmail.com";
+
 //"Scroll to top" button
 let upArrow = $(`
   <button id="btnScrollToTop" aria-label="Scroll to top" onclick="scrollToTop()">
     <i class="fas fa-angle-up" aria-hidden="true"></i>
   </button>
 `);
+
+let contactBubble = $(
+  `<div class="contact-bubble" data-open="false">
+    <button class="contact-bubble__toggle" type="button" aria-expanded="false" aria-controls="contact-bubble-panel">
+      <span class="contact-bubble__icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+      <span class="contact-bubble__label">Contact Me</span>
+    </button>
+    <div class="contact-bubble__panel" id="contact-bubble-panel" role="dialog" aria-modal="false" aria-hidden="true">
+      <div class="contact-bubble__sr-only" id="contact-bubble-description">Send an email with your details. Submitting opens your mail app.</div>
+      <div class="contact-bubble__header">
+        <h3 class="contact-bubble__title">Let’s Connect</h3>
+        <button class="contact-bubble__close" type="button" aria-label="Close contact form">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <form class="contact-bubble__form" aria-describedby="contact-bubble-description">
+        <div class="contact-bubble__field">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="contact-bubble__field">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="contact-bubble__field">
+          <label for="contact-company">Company</label>
+          <input id="contact-company" name="company" type="text" autocomplete="organization" />
+        </div>
+        <div class="contact-bubble__field">
+          <label for="contact-body">Body</label>
+          <textarea id="contact-body" name="message" rows="4" required></textarea>
+        </div>
+        <p class="contact-bubble__error" role="alert" aria-live="polite"></p>
+        <button class="contact-bubble__submit" type="submit">
+          Send Email
+        </button>
+        <p class="contact-bubble__note">Your default mail client will open with the details pre-filled.</p>
+      </form>
+    </div>
+  </div>`
+);
 
 //function for the "Scroll To Top" button to detect the footer
 $(document).ready(function () {
@@ -196,6 +239,7 @@ $(function () {
   let bodyElement = $(`body`);
   bodyElement.prepend(header);
   bodyElement.append(footer);
+  bodyElement.append(contactBubble);
   bodyElement.append(upArrow);
   $("#btnScrollToTop").css("visibility", "hidden");
 
@@ -218,6 +262,104 @@ $(function () {
 $(function () {
   $("#js-hamburger").on("click", function () {
     $(this).toggleClass("is-active");
+  });
+});
+
+$(function () {
+  const bubble = $(".contact-bubble");
+  const toggleBtn = bubble.find(".contact-bubble__toggle");
+  const closeBtn = bubble.find(".contact-bubble__close");
+  const panel = bubble.find(".contact-bubble__panel");
+  const form = bubble.find(".contact-bubble__form");
+  const errorNode = bubble.find(".contact-bubble__error");
+
+  const setOpen = (shouldOpen) => {
+    bubble.toggleClass("is-open", shouldOpen);
+    bubble.attr("data-open", shouldOpen);
+    toggleBtn.attr("aria-expanded", shouldOpen);
+    panel.attr("aria-hidden", !shouldOpen);
+    panel.attr("aria-modal", shouldOpen ? "true" : "false");
+
+    if (shouldOpen) {
+      setTimeout(() => {
+        panel.find("input, textarea, button").filter(":visible").first().trigger("focus");
+      }, 200);
+    } else {
+      toggleBtn.trigger("focus");
+    }
+  };
+
+  const validateForm = (values) => {
+    if (!values.name || !values.email || !values.message) {
+      return "Please fill in the required fields (Name, Email, Body).";
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(values.email)) {
+      return "Please enter a valid email address.";
+    }
+
+    return "";
+  };
+
+  toggleBtn.on("click", function (event) {
+    event.preventDefault();
+    const isOpen = bubble.attr("data-open") === "true";
+    setOpen(!isOpen);
+  });
+
+  closeBtn.on("click", function (event) {
+    event.preventDefault();
+    setOpen(false);
+  });
+
+  panel.on("keydown", function (event) {
+    if (event.key === "Escape") {
+      setOpen(false);
+    }
+  });
+
+  $(document).on("click", function (event) {
+    if (
+      bubble.attr("data-open") === "true" &&
+      !bubble.is(event.target) &&
+      bubble.has(event.target).length === 0
+    ) {
+      setOpen(false);
+    }
+  });
+
+  form.on("submit", function (event) {
+    event.preventDefault();
+    const formData = {
+      name: form.find("#contact-name").val().trim(),
+      email: form.find("#contact-email").val().trim(),
+      company: form.find("#contact-company").val().trim(),
+      message: form.find("#contact-body").val().trim(),
+    };
+
+    const validationMessage = validateForm(formData);
+    if (validationMessage) {
+      errorNode.text(validationMessage);
+      return;
+    }
+
+    errorNode.text("");
+
+    const subject = `Portfolio Contact from ${formData.name}`;
+    const bodyLines = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Company: ${formData.company || "N/A"}`,
+      "", // blank line
+      formData.message,
+    ];
+
+    const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+    window.location.href = mailtoLink;
+    form[0].reset();
+    setOpen(false);
   });
 });
 

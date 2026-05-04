@@ -211,6 +211,225 @@ body {
 }
 
 
+/* Floating contact bubble */
+
+.contact-bubble {
+    position: fixed;
+    bottom: 100px;
+    left: 16px;
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.contact-bubble__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #6a00bb, #9a4dff);
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 18px rgba(106, 0, 187, 0.35);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-bubble__toggle:focus-visible,
+.contact-bubble__toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(106, 0, 187, 0.45);
+    outline: none;
+}
+
+.contact-bubble__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+.contact-bubble__label {
+    font-size: 0.95rem;
+}
+
+.contact-bubble__panel {
+    width: 320px;
+    max-width: calc(100vw - 32px);
+    background-color: #ffffff;
+    color: #1f1f1f;
+    border-radius: 18px;
+    box-shadow: 0 18px 48px rgba(31, 31, 31, 0.25);
+    padding: 20px 22px;
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    transform-origin: bottom left;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.contact-bubble.is-open .contact-bubble__panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.contact-bubble__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.contact-bubble__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+    color: inherit;
+}
+
+.contact-bubble__close {
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.contact-bubble__close:hover,
+.contact-bubble__close:focus-visible {
+    background: rgba(0, 0, 0, 0.08);
+    outline: none;
+}
+
+.contact-bubble__form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-bubble__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-bubble__field label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-bubble__field input,
+.contact-bubble__field textarea {
+    width: 100%;
+    border: 1px solid rgba(106, 0, 187, 0.2);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    color: inherit;
+    background-color: rgba(249, 246, 255, 0.9);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-bubble__field input:focus-visible,
+.contact-bubble__field textarea:focus-visible {
+    border-color: #6a00bb;
+    box-shadow: 0 0 0 3px rgba(106, 0, 187, 0.15);
+    outline: none;
+    background-color: #ffffff;
+}
+
+.contact-bubble__submit {
+    background: #6a00bb;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-bubble__submit:hover,
+.contact-bubble__submit:focus-visible {
+    background: #58009e;
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.contact-bubble__note {
+    font-size: 0.75rem;
+    color: rgba(31, 31, 31, 0.7);
+    margin: 0;
+}
+
+.contact-bubble__error {
+    min-height: 1.2rem;
+    font-size: 0.8rem;
+    color: #d64545;
+    margin: 0;
+}
+
+.contact-bubble__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+html[light-mode="dark"] .contact-bubble__panel,
+body.dark-mode .contact-bubble__panel {
+    background-color: #1f1f21;
+    color: #f3f3f3;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+}
+
+html[light-mode="dark"] .contact-bubble__field input,
+html[light-mode="dark"] .contact-bubble__field textarea,
+body.dark-mode .contact-bubble__field input,
+body.dark-mode .contact-bubble__field textarea {
+    background-color: rgba(54, 54, 62, 0.8);
+    border-color: rgba(186, 148, 255, 0.5);
+}
+
+html[light-mode="dark"] .contact-bubble__submit,
+body.dark-mode .contact-bubble__submit {
+    background: linear-gradient(135deg, #bb86fc, #6a00bb);
+}
+
+@media (max-width: 600px) {
+    .contact-bubble {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 80px;
+        align-items: center;
+    }
+
+    .contact-bubble__panel {
+        width: min(380px, 92vw);
+        transform-origin: bottom center;
+    }
+}
+
+
 /* smooth scrolling to top */
 
 html {

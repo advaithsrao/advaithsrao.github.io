@@ -3,60 +3,61 @@
 
 /* Context-specific card colors with brand accuracy */
 .card1[data-company="Cisco"] {
-  --card-bg-light: linear-gradient(135deg, rgba(0, 112, 244, 0.15), rgba(0, 112, 244, 0.08));
-  --card-bg-dark: linear-gradient(135deg, rgba(0, 112, 244, 0.25), rgba(0, 112, 244, 0.12));
   --card-accent: #0070f4;
-  border-left: 5px solid #0070f4;
-  background: var(--card-bg-light);
+  --card-bg-light: rgba(0, 112, 244, 0.03);
+  --card-bg-dark: rgba(0, 112, 244, 0.08);
+  border-top: 4px solid var(--card-accent);
 }
 
 .card1[data-company="Armorblox"] {
-  --card-bg-light: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(155, 89, 182, 0.08));
-  --card-bg-dark: linear-gradient(135deg, rgba(155, 89, 182, 0.25), rgba(155, 89, 182, 0.12));
   --card-accent: #9b59b6;
-  border-left: 5px solid #9b59b6;
-  background: var(--card-bg-light);
+  --card-bg-light: rgba(155, 89, 182, 0.03);
+  --card-bg-dark: rgba(155, 89, 182, 0.08);
+  border-top: 4px solid var(--card-accent);
 }
 
 .card1[data-company="StatValu"] {
-  --card-bg-light: linear-gradient(135deg, rgba(46, 204, 113, 0.15), rgba(46, 204, 113, 0.08));
-  --card-bg-dark: linear-gradient(135deg, rgba(46, 204, 113, 0.25), rgba(46, 204, 113, 0.12));
   --card-accent: #2ecc71;
-  border-left: 5px solid #2ecc71;
-  background: var(--card-bg-light);
+  --card-bg-light: rgba(46, 204, 113, 0.03);
+  --card-bg-dark: rgba(46, 204, 113, 0.08);
+  border-top: 4px solid var(--card-accent);
 }
 
 .card1[data-company="Mercedes-Benz"] {
-  --card-bg-light: linear-gradient(135deg, rgba(64, 64, 64, 0.15), rgba(64, 64, 64, 0.08));
-  --card-bg-dark: linear-gradient(135deg, rgba(192, 192, 192, 0.25), rgba(192, 192, 192, 0.12));
   --card-accent: #404040;
-  border-left: 5px solid #404040;
-  background: var(--card-bg-light);
+  --card-bg-light: rgba(64, 64, 64, 0.03);
+  --card-bg-dark: rgba(192, 192, 192, 0.08);
+  border-top: 4px solid var(--card-accent);
 }
 
 .card1[data-company="LCode"] {
-  --card-bg-light: linear-gradient(135deg, rgba(255, 87, 51, 0.15), rgba(255, 87, 51, 0.08));
-  --card-bg-dark: linear-gradient(135deg, rgba(255, 87, 51, 0.25), rgba(255, 87, 51, 0.12));
   --card-accent: #ff5733;
-  border-left: 5px solid #ff5733;
-  background: var(--card-bg-light);
+  --card-bg-light: rgba(255, 87, 51, 0.03);
+  --card-bg-dark: rgba(255, 87, 51, 0.08);
+  border-top: 4px solid var(--card-accent);
 }
 
-/* Dark mode variations */
-html[light-mode="dark"] .card1[data-company="Cisco"] {
-  background: var(--card-bg-dark);
+.card1 {
+    background: var(--card-bg-light) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05) !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
 }
-html[light-mode="dark"] .card1[data-company="Armorblox"] {
-  background: var(--card-bg-dark);
+
+.card1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
 }
-html[light-mode="dark"] .card1[data-company="StatValu"] {
-  background: var(--card-bg-dark);
+
+html[light-mode="dark"] .card1 {
+    background: var(--card-bg-dark) !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
 }
-html[light-mode="dark"] .card1[data-company="Mercedes-Benz"] {
-  background: var(--card-bg-dark);
-}
-html[light-mode="dark"] .card1[data-company="LCode"] {
-  background: var(--card-bg-dark);
+
+html[light-mode="dark"] .card1:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
 }
 
 html[light-mode="light"] {
